@@ -1,11 +1,20 @@
 import { FacebookLogo, InstagramLogo, LinkedinLogo, Sun, WhatsappLogo } from "phosphor-react"
 import Botao from "./components/Botao/Botao.jsx"
+import { useState } from "react";
 
 function App() {
+   const [darkMode, setDarkMode] = useState(false);
+  
+   function handleChangeMode(){
+    setDarkMode(!darkMode)
+   }
+  
+
+
   return (
-    <main className=" h-screen w-full overflow-hidden"> 
+    <main className={`h-screen w-full overflow-hidden  ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'} transition-all duration-600`}> 
       <header className="flex justify-end  p-6">
-        <button className="p-2 hover:bg-gray-200 text-black rounded-lg cursor-pointer transition-all duration-600">
+        <button onClick={handleChangeMode} className="p-2 hover:bg-gray-200 text-black rounded-lg cursor-pointer transition-all duration-600">
           <Sun size={16} />
         </button>
       </header>
